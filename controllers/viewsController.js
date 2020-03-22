@@ -1,5 +1,6 @@
 const Tour = require('../models/tourModel');
 const User = require('../models/userModel');
+const Booking = require('../models/bookingModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
@@ -42,6 +43,12 @@ exports.getLoginForm = (req, res) => {
   });
 };
 
+exports.getSignInForm = (req, res) => {
+  res.status(200).render('signup', {
+    title: 'Sign up to Natours'
+  })
+}
+
 exports.getAccount = (req, res) => {
   res.status(200).render('account', {
     title: 'Your account'
@@ -50,7 +57,7 @@ exports.getAccount = (req, res) => {
 
 exports.updateUserData = catchAsync(async (req, res, next) => {
   const updatedUser = await User.findByIdAndUpdate(
-    req.user.id, 
+    req.user.id,
     {
       name: req.body.name,
       email: req.body.email
@@ -63,5 +70,16 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
   res.status(200).render('account', {
     title: 'Your account',
     user: updatedUser
+  });
+});
+
+exports.getMyTours = catchAsync(async (req, res, next) => {
+  const bookings = await Booking.find({ user: req.user.id });
+  const tourIDs = bookings.map(el => el.tour);
+  const tours = await Tour.find({ _id: { $in: tourIDs } });
+
+  res.status(200).render('overview', {
+    title: 'My tours',
+    tours
   });
 });
