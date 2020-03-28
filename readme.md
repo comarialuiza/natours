@@ -1,6 +1,6 @@
 # Natours
 
-Natours foi um projeto desenvolvido no curso ["Node.js, Express, MongoDB & More: The Complete Bootcamp 2020"](https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/) do professor Jonas Schmedtmann na Udemy.
+Natours foi um projeto desenvolvido no curso [Node.js, Express, MongoDB & More: The Complete Bootcamp 2020](https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/) do professor Jonas Schmedtmann na Udemy.
 
 Você pode ver a aplicação final [aqui](https://natours-app-malu.herokuapp.com/).
 
@@ -23,4 +23,7 @@ Você pode ver a aplicação final [aqui](https://natours-app-malu.herokuapp.com
 
 ### Layout
 
-![](/images/mockup-initial.png);
+![](/images/mockup-initial.png)
+![](/images/mockup-single-01.png)
+![](/images/mockup-single-02.png)
+![](/images/mockup-login.png)
